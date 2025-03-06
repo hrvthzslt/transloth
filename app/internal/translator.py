@@ -1,4 +1,6 @@
+import traceback
 from typing import TypedDict
+from fastapi.responses import JSONResponse
 from ollama import ChatResponse, Client
 from pydantic import BaseModel, Field
 
@@ -26,11 +28,11 @@ def action(data: TranaslationData) -> ChatResponse:
         raise TranslationException("Getting translation from model failed") from e
 
 
-class TranslatedResponse(TypedDict):
+class TranslatedResponseContent(TypedDict):
     message: str
 
 
-def responder(response: ChatResponse) -> TranslatedResponse:
+def responder(response: ChatResponse) -> TranslatedResponseContent:
     content = response.get("message", {}).get("content", "")
     if not content:
         raise TranslationException("Translation response is empty")
@@ -53,3 +55,18 @@ def chat(client: Client, config: Config, message: str) -> ChatResponse:
             },
         ],
     )
+
+
+class ErrorResponseContent(TypedDict):
+    error: str
+    message: str
+    trace: str
+
+
+def error_responder(exc: TranslationException) -> ErrorResponseContent:
+    error_trace = traceback.format_exc()
+    return {
+        "error": "Translation Error",
+        "message": exc.message,
+        "trace": error_trace,
+    }
