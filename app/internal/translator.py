@@ -28,14 +28,14 @@ def action(data: TranaslationData) -> ChatResponse:
 
 
 class TranslatedResponseContent(TypedDict):
-    message: str
+    text: str
 
 
 def responder(response: ChatResponse) -> TranslatedResponseContent:
     content = response.get("message", {}).get("content", "")
     if not content:
         raise TranslationException("Translation response is empty")
-    return {"message": content}
+    return {"text": content}
 
 
 def compose_message(data: TranaslationData) -> str:

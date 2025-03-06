@@ -20,6 +20,35 @@ make start
 
 After starting the services, the API will be available at `http://localhost:8000`.
 
+## Example
+
+Request:
+
+```requests
+POST localhost:8000/translate
+Content-Type: application/json
+
+{
+    "text": "Hello, world!",
+    "source: "english",
+    "target: "spanish"
+}
+```
+
+**Source and target has to be named explicitly.**
+
+Response:
+
+```json
+{
+    "text": "Hola, mundo!"
+}
+```
+
+## API documentation
+
+The API documentation is available at `http://localhost:8000/docs` in _openapi_ format.
+
 ## Development
 
 Access ollama container shell:
