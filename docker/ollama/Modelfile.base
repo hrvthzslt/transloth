@@ -1,1 +1,1 @@
-FROM stablelm2:1.6b
+FROM llama3.2:3b

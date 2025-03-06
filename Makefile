@@ -34,4 +34,6 @@ logs-web: # Show ollama logs
 	$(DOCKER_COMPOSE) logs web -f;
 
 test-request: # Run a test request
-	curl -X POST "http://localhost:8000/translate" -H "Content-Type: application/json" -d '{"text": "Hello, world! Time for translation!", "source": "english", "target": "italian"}'
+	curl -X POST "http://localhost:8000/translate" -H "Content-Type: application/json" -d '{"text": "The quick brown fox jumps over the lazy dog", "source": "english", "target": "italian"}'
+	@echo \-
+	curl -X POST "http://localhost:8000/translate" -H "Content-Type: application/json" -d '{"text": "La veloce volpe marrone salta sopra il cane pigro", "source": "italian", "target": "english"}'
