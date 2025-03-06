@@ -50,3 +50,15 @@ Send two test requests with curl:
 ```bash
 make test-request
 ```
+
+Run quality checks:
+
+```bash
+make lint
+```
+
+Fix quality issues:
+
+```bash
+make fix;
+```

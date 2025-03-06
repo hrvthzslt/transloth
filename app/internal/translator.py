@@ -1,6 +1,5 @@
 import traceback
 from typing import TypedDict
-from fastapi.responses import JSONResponse
 from ollama import ChatResponse, Client
 from pydantic import BaseModel, Field
 

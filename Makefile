@@ -34,3 +34,11 @@ test-request: # Run a test request
 	curl -X POST "http://localhost:8000/translate" -H "Content-Type: application/json" -d '{"text": "The quick brown fox jumps over the lazy dog", "source": "english", "target": "italian"}'
 	@echo \-
 	curl -X POST "http://localhost:8000/translate" -H "Content-Type: application/json" -d '{"text": "La veloce volpe marrone salta sopra il cane pigro", "source": "italian", "target": "english"}'
+
+lint: # Run linter
+	$(DOCKER_COMPOSE) exec web ruff check;
+	$(DOCKER_COMPOSE) exec web ruff format --check;
+
+fix: # Fix linting problems
+	$(DOCKER_COMPOSE) exec web ruff check --fix;
+	$(DOCKER_COMPOSE) exec web ruff format;
