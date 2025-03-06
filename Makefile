@@ -18,9 +18,6 @@ stop: # Stop the environment
 build: # Build the stack
 	$(DOCKER_COMPOSE) build;
 
-chat: # Open a chat in interactive shell
-	$(DOCKER_COMPOSE) exec ollama ollama run trans;
-
 shell-ollama: # Open interactive shell
 	$(DOCKER_COMPOSE) exec ollama bash;
 
