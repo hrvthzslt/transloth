@@ -18,16 +18,16 @@ stop: # Stop the environment
 build: # Build the stack
 	$(DOCKER_COMPOSE) build;
 
-shell-ollama: # Open interactive shell
+shell-ollama: # Open interactive shell of ollama container
 	$(DOCKER_COMPOSE) exec ollama bash;
 
 logs-ollama: # Show ollama logs
 	$(DOCKER_COMPOSE) logs ollama -f;
 
-shell-web: # Open interactive shell
+shell-web: # Open interactive shell of web container
 	$(DOCKER_COMPOSE) exec web sh;
 
-logs-web: # Show ollama logs
+logs-web: # Show web logs
 	$(DOCKER_COMPOSE) logs web -f;
 
 test-request: # Run a test request
