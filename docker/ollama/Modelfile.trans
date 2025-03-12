@@ -2,6 +2,16 @@ FROM basemodel
 
 PARAMETER temperature 0.6
 
+TEMPLATE """
+{{- if .System }}<|start_header_id|>system<|end_header_id|>
+{{ .System }}<|eot_id|>
+{{- end }}
+
+{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+{{ end }}<|im_start|>assistant
+"""
+
 SYSTEM """
 You're a translation model.
 The requests you receive will contain the source language and the target language, and the text to be translated.

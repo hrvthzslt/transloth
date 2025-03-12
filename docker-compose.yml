@@ -5,6 +5,8 @@ services:
     container_name: trans-ollama
     networks:
       - trans-network
+    environment:
+      - OLLAMA_DEBUG=1
     healthcheck:
       test: ["CMD-SHELL", "command ollama"]
       interval: 5s
