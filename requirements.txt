@@ -15,10 +15,13 @@ Jinja2==3.1.5
 markdown-it-py==3.0.0
 MarkupSafe==3.0.2
 mdurl==0.1.2
+nodeenv==1.9.1
+nodejs-wheel-binaries==22.14.0
 ollama==0.4.7
 pydantic==2.10.6
 pydantic_core==2.27.2
 Pygments==2.19.1
+pyright==1.1.396
 python-dotenv==1.0.1
 python-multipart==0.0.20
 PyYAML==6.0.2

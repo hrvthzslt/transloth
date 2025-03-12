@@ -38,6 +38,7 @@ test-request: # Run a test request
 lint: # Run linter
 	$(DOCKER_COMPOSE) exec web ruff check;
 	$(DOCKER_COMPOSE) exec web ruff format --check;
+	$(DOCKER_COMPOSE) exec web pyright;
 
 fix: # Fix linting problems
 	$(DOCKER_COMPOSE) exec web ruff check --fix;

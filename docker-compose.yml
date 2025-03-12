@@ -22,7 +22,7 @@ services:
       - trans-network
     volumes:
       - ./:/app
-    command: fastapi dev --host 0.0.0.0 app/main.py
+    command: fastapi dev --host 0.0.0.0 main.py
     env_file:
       - .env.local
     depends_on:
