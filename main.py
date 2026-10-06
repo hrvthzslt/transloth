@@ -9,7 +9,6 @@ from internal.translator import (
     responder,
 )
 
-
 app = FastAPI()
 
 

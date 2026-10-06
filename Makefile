@@ -32,10 +32,10 @@ test-request: # Run a test request
 	curl -X POST "http://localhost:8000/translate" -H "Content-Type: application/json" -d '{"text": "La veloce volpe marrone salta sopra il cane pigro", "source": "italian", "target": "english"}'
 
 lint: # Run linter
-	$(DOCKER_COMPOSE) exec web ruff check;
+	$(DOCKER_COMPOSE) exec web ruff check --extend-select I;
 	$(DOCKER_COMPOSE) exec web ruff format --check;
 	$(DOCKER_COMPOSE) exec web pyright;
 
 fix: # Fix linting problems
-	$(DOCKER_COMPOSE) exec web ruff check --fix;
+	$(DOCKER_COMPOSE) exec web ruff check --extend-select I --fix --unsafe-fixes;
 	$(DOCKER_COMPOSE) exec web ruff format;

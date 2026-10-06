@@ -1,5 +1,6 @@
 import traceback
 from typing import TypedDict
+
 from ollama import ChatResponse, Client
 from pydantic import BaseModel, Field
 
